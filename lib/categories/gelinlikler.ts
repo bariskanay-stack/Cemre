@@ -6,7 +6,7 @@ export const gelinliklerCategory: Category = {
   slug: 'gelinlikler',
   description: 'Hayalinizdeki gelinliği bulun. Zarif ve şık tasarımlarımızla özel gününüzü unutulmaz kılın.',
   coverImage: {
-    url: '/images/gelinlikler/Cover.jpg',
+    url: '/images/gelinlikler/cover.jpg',
     alt: 'Gelinlikler Koleksiyonu',
   },
   order: 1,

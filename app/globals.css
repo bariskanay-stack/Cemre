@@ -239,7 +239,6 @@
   margin: 2rem auto;
   width: 100%;
   height: auto;
-  /* Görsellerin sürüklenmesini engelle */
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
@@ -258,7 +257,6 @@
   border: 1px solid rgba(201, 168, 105, 0.2);
   clear: right;
   display: block;
-  /* Görsellerin sürüklenmesini engelle */
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
@@ -300,16 +298,16 @@
 
 .blog-content > p:first-of-type {
   font-size: 1.25rem;
-  color: #e5e7eb; /* Neutral-200 */
+  color: #e5e7eb; 
 }
 
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari and Opera */
+  display: none;  
 }
 
 @keyframes breathe {
@@ -381,3 +379,6 @@
   margin-bottom: 0;
   font-size: 0.95rem;
 }
+body:has([data-lightbox-container]) .fixed.top-6.right-6.z-\[110\] {
+  display: none !important;
+  }

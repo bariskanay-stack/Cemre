@@ -17,6 +17,10 @@ export const homeMetadata: Metadata = {
   title: 'Cemre Bridal İstanbul - Hayalleriniz Zarafetle Buluşuyor',
   description:
     'İstanbul\'da en şık gelinlik ve özel gün kıyafetleri. Cemre Bridal\'da benzersiz gelinlikler, tesettür gelinlikler, nişan elbiseleri, kına kıyafetleri, after party elbiseleri ve bindallı modelleri keşfedin. Lüks, zarafet ve zamansız güzelliği deneyimleyin.',
+  icons: {
+    icon: '/icon.svg',
+    apple: '/icon.svg',
+  },
   openGraph: {
     title: 'Cemre Bridal İstanbul - Hayalleriniz Zarafetle Buluşuyor',
     description:

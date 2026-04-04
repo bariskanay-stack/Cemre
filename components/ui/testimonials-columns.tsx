@@ -18,7 +18,6 @@ export const TestimonialsColumn = (props: {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Animasyonu sadece bir kez başlat
     if (!animationRef.current && containerRef.current) {
       const duration = props.duration || 10;
       
@@ -43,7 +42,6 @@ export const TestimonialsColumn = (props: {
     };
   }, [props.duration]);
 
-  // isPaused değiştiğinde sadece pause/play yap
   useEffect(() => {
     if (animationRef.current) {
       if (isPaused) {

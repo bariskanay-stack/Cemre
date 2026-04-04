@@ -32,6 +32,9 @@ export default function ImageLightbox({
   const dragOffsetRef = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const rafIdRef = useRef<number | null>(null);
+  const velocityRef = useRef(0);
+  const lastMoveTimeRef = useRef(0);
+  const lastMoveXRef = useRef(0);
 
   useEffect(() => {
     setCurrentIndex(initialIndex);
@@ -127,7 +130,16 @@ export default function ImageLightbox({
       const offsetX = e.clientX - startXRef.current;
       const offsetY = e.clientY - startYRef.current;
 
-      if (Math.abs(offsetY) > 120 && Math.abs(offsetY) > Math.abs(offsetX) * 2.5) {
+      const now = Date.now();
+      const timeDelta = now - lastMoveTimeRef.current;
+      if (timeDelta > 0) {
+        const moveDelta = e.clientX - lastMoveXRef.current;
+        velocityRef.current = moveDelta / timeDelta;
+      }
+      lastMoveTimeRef.current = now;
+      lastMoveXRef.current = e.clientX;
+
+      if (Math.abs(offsetY) > 100 && Math.abs(offsetY) > Math.abs(offsetX) * 2) {
         isDraggingRef.current = false;
         setIsDraggingUI(false);
         startXRef.current = null;
@@ -135,6 +147,7 @@ export default function ImageLightbox({
         pointerIdRef.current = null;
         dragOffsetRef.current = 0;
         setDragOffset(0);
+        velocityRef.current = 0;
         if (rafIdRef.current !== null) {
           cancelAnimationFrame(rafIdRef.current);
           rafIdRef.current = null;
@@ -142,20 +155,25 @@ export default function ImageLightbox({
         return;
       }
 
-      if (rafIdRef.current === null) {
-        rafIdRef.current = requestAnimationFrame(() => {
-          dragOffsetRef.current = offsetX;
-          setDragOffset(offsetX);
-          rafIdRef.current = null;
-        });
-      } else {
-        dragOffsetRef.current = offsetX;
-        cancelAnimationFrame(rafIdRef.current);
-        rafIdRef.current = requestAnimationFrame(() => {
-          setDragOffset(offsetX);
-          rafIdRef.current = null;
-        });
+      const containerWidth = containerRef.current?.clientWidth || window.innerWidth;
+      let adjustedOffset = offsetX;
+ 
+      const maxDrag = containerWidth * 0.5;
+      if (Math.abs(offsetX) > maxDrag) {
+        const excess = Math.abs(offsetX) - maxDrag;
+        const resistance = Math.max(0.1, 1 - (excess / containerWidth));
+        adjustedOffset = maxDrag * Math.sign(offsetX) + (excess * resistance * Math.sign(offsetX));
       }
+
+      if (rafIdRef.current !== null) {
+        cancelAnimationFrame(rafIdRef.current);
+      }
+      
+      rafIdRef.current = requestAnimationFrame(() => {
+        dragOffsetRef.current = adjustedOffset;
+        setDragOffset(adjustedOffset);
+        rafIdRef.current = null;
+      });
     };
 
     const finishDrag = (clientX: number | null) => {
@@ -166,6 +184,7 @@ export default function ImageLightbox({
         startYRef.current = null;
         pointerIdRef.current = null;
         setDragOffset(0);
+        velocityRef.current = 0;
         return;
       }
 
@@ -173,7 +192,14 @@ export default function ImageLightbox({
       const distance = Math.abs(deltaX);
       const containerWidth = containerRef.current?.clientWidth || window.innerWidth;
       const distancePercent = distance / containerWidth;
-      const shouldTransition = distance > 15 || distancePercent > 0.03;
+   
+      const velocityThreshold = 0.3; // px/ms
+      const distanceThreshold = containerWidth * 0.15; // %15 ekran genişliği
+      const minSwipeDistance = 30; // minimum 30px
+      
+      const hasVelocity = Math.abs(velocityRef.current) > velocityThreshold;
+      const hasDistance = distance > distanceThreshold || distance > minSwipeDistance;
+      const shouldTransition = hasVelocity || hasDistance;
 
       if (shouldTransition) {
         if (deltaX > 0) {
@@ -182,6 +208,7 @@ export default function ImageLightbox({
           goToNext();
         }
       } else {
+        // Smooth spring-back animation
         dragOffsetRef.current = 0;
         setDragOffset(0);
         setIsDraggingUI(false);
@@ -190,6 +217,8 @@ export default function ImageLightbox({
         startYRef.current = null;
         pointerIdRef.current = null;
       }
+      
+      velocityRef.current = 0;
     };
 
     const handlePointerUp = (e: PointerEvent) => {
@@ -238,6 +267,9 @@ export default function ImageLightbox({
     startYRef.current = e.clientY;
     dragOffsetRef.current = 0;
     setDragOffset(0);
+    velocityRef.current = 0;
+    lastMoveTimeRef.current = Date.now();
+    lastMoveXRef.current = e.clientX;
     (e.target as HTMLElement)?.setPointerCapture?.(e.pointerId);
   };
 
@@ -379,19 +411,37 @@ export default function ImageLightbox({
                   isDraggingUI && dragOffset !== 0
                     ? {
                         x: dragOffset,
-                        opacity: Math.max(0.3, 1 - Math.abs(dragOffset) / 500),
-                        scale: Math.max(0.85, 1 - Math.abs(dragOffset) / 2000),
+                        opacity: Math.max(0.5, 1 - Math.abs(dragOffset) / 800),
+                        scale: Math.max(0.92, 1 - Math.abs(dragOffset) / 3000),
                       }
                     : 'center'
                 }
                 exit="exit"
                 transition={
                   isDraggingUI && dragOffset !== 0
-                    ? { type: 'tween', duration: 0 }
+                    ? { 
+                        type: 'tween', 
+                        duration: 0,
+                        ease: 'linear'
+                      }
                     : {
-                        x: { type: 'tween', duration: 0.08, ease: [0.25, 0.1, 0.25, 1] },
-                        opacity: { type: 'tween', duration: 0.06, ease: 'easeOut' },
-                        scale: { type: 'tween', duration: 0.08, ease: [0.25, 0.1, 0.25, 1] },
+                        x: { 
+                          type: 'spring', 
+                          stiffness: 400, 
+                          damping: 35,
+                          mass: 0.8
+                        },
+                        opacity: { 
+                          type: 'tween', 
+                          duration: 0.15, 
+                          ease: [0.25, 0.1, 0.25, 1]
+                        },
+                        scale: { 
+                          type: 'spring', 
+                          stiffness: 400, 
+                          damping: 35,
+                          mass: 0.8
+                        },
                       }
                 }
                 className={`relative w-full h-full ${isDraggingUI ? 'cursor-grabbing' : 'cursor-grab'} select-none outline-none`}
@@ -399,12 +449,18 @@ export default function ImageLightbox({
                 onPointerDown={handlePointerDown}
                 data-lightbox-image
                 style={{
-                  touchAction: 'pan-x pan-y',
+                  touchAction: 'pan-y',
                   userSelect: 'none',
                   WebkitUserSelect: 'none',
                   outline: 'none',
                   WebkitTapHighlightColor: 'transparent',
                   cursor: isDraggingUI ? 'grabbing' : 'grab',
+                  willChange: isDraggingUI ? 'transform' : 'auto',
+                  transform: 'translateZ(0)',
+                  backfaceVisibility: 'hidden',
+                  WebkitBackfaceVisibility: 'hidden',
+                  perspective: 1000,
+                  WebkitPerspective: 1000,
                 }}
               >
                 <Image

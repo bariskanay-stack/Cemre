@@ -297,8 +297,8 @@ export function HoverFooter() {
             <p className="text-neutral-200/80 mb-1">
               © {new Date().getFullYear()} Cemre Bridal. Tüm hakları saklıdır.
             </p>
-            <p className="text-xs text-neutral-400/60" style={{ fontFamily: 'Cormorant Garamond, serif', letterSpacing: '0.05em' }}>
-              Designed & Developed by Barış KANAY
+            <p className="font-allura text-sm text-[#c9a869]/80">
+              B.K.
             </p>
           </div>
         </div>

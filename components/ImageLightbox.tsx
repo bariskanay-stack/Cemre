@@ -251,7 +251,7 @@ export default function ImageLightbox({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.1 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95"
+      className="fixed inset-0 z-[120] flex items-center justify-center bg-black/95"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();

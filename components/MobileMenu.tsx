@@ -94,7 +94,7 @@ export default function MobileMenu({
                 <div className="w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 2xl:w-96 2xl:h-96 flex items-center justify-center mx-auto">
                   <img 
                     src="/logo.svg" 
-                    alt="CEMRE BRIDAL Logo" 
+                    alt={`${logoText} Logo`}
                     className="w-full h-full object-contain"
                   />
                 </div>

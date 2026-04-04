@@ -6,12 +6,15 @@ import { motion } from 'motion/react';
 export default function MobileScrollIndicator() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [isIOS, setIsIOS] = useState(false);
 
   useEffect(() => {
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    
-    if (!isMobile && !isIOS) return;
+    const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    setIsIOS(iOS);
+  }, []);
+
+  useEffect(() => {
+    if (!isIOS) return;
 
     let ticking = false;
     let hideTimeout: NodeJS.Timeout;
@@ -55,14 +58,16 @@ export default function MobileScrollIndicator() {
       window.removeEventListener('touchmove', handleScroll);
       clearTimeout(hideTimeout);
     };
-  }, []);
+  }, [isIOS]);
+
+  if (!isIOS) return null;
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: isVisible ? 1 : 0 }}
       transition={{ duration: 0.2 }}
-      className="fixed top-0 right-0 z-50 pointer-events-none md:hidden"
+      className="fixed top-0 right-0 z-50 pointer-events-none"
       style={{ width: '4px', height: '100vh' }}
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/20" />

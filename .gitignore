@@ -42,3 +42,8 @@ SECURITY-AUDIT.md
 PRE-LAUNCH-CHECKLIST.md
 
 .vercel
+
+# IDE and tool folders
+.kiro
+.kombai
+.vscode

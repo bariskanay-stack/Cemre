@@ -23,6 +23,22 @@ const nextConfig = {
     return 'cemrebridal-' + Date.now();
   },
   
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'cemrebridal.com',
+          },
+        ],
+        destination: 'https://www.cemrebridal.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
+  
   async headers() {
     return [
       {

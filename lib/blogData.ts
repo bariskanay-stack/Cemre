@@ -2,7 +2,6 @@ import { BlogPost, BlogCategory, BlogCategoryInfo } from './blogTypes';
 
 export type { BlogPost, BlogCategory, BlogCategoryInfo };
 
-// Blog kategorileri
 export const blogCategories: BlogCategoryInfo[] = [
   {
     slug: 'vucut-tipi-gelinlik-secimi',
@@ -106,8 +105,6 @@ import { kisGelinlikAksesuarRehberi } from './blogs/kis-gelinlik-aksesuar';
 import { gelinEldiveniRehberi } from './blogs/gelin-eldiveni';
 import { takiSecimRehberi } from './blogs/taki-secimi';
 import { gelinlikProvaRehberi } from './blogs/gelinlik-provasi';
-
-// Trendler ve Moda (2026 Yeni Koleksiyon)
 import { trendler2026 } from './blogs/2026-gelinlik-trendleri';
 import { klasikGelinlikRehberi } from './blogs/modasi-asla-gecmeyecek-5-klasik-gelinlik-modeli';
 import { kabarikKolluGelinlikRehberi } from './blogs/kabarik-kollu-gelinlikler-ronesans-etkisi-geri-donuyor';
@@ -268,7 +265,6 @@ export function calculateReadTime(content: string): number {
   return Math.ceil(words / 200);
 }
 
-// Tarih formatlama
 export function formatDate(dateString: string): string {
   const date = new Date(dateString);
   return date.toLocaleDateString('tr-TR', {

@@ -7,9 +7,10 @@ import { Product } from '@/lib/mockData';
 
 interface ProductCardProps {
   product: Product;
+  onClick?: () => void;
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product, onClick }: ProductCardProps) {
   if (!product) {
     if (process.env.NODE_ENV === 'development') {
       console.warn('ProductCard: product is null or undefined');
@@ -42,7 +43,10 @@ export default function ProductCard({ product }: ProductCardProps) {
   }
 
   return (
-    <Link href={`/collections/${product.categorySlug}/${product.slug}`}>
+    <Link 
+      href={`/collections/${product.categorySlug}/${product.slug}`}
+      onClick={onClick}
+    >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

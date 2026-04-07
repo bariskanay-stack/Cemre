@@ -208,7 +208,7 @@
 }
 
 .blog-content ul li::before {
-  content: "✓";
+  content: "✦";
   position: absolute;
   left: 0;
   top: 0;
@@ -243,7 +243,6 @@
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  user-drag: none;
 }
 
 .blog-content img.blog-image {
@@ -261,7 +260,6 @@
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  user-drag: none;
 }
 
 .blog-content .blog-image-placeholder {
@@ -298,16 +296,16 @@
 
 .blog-content > p:first-of-type {
   font-size: 1.25rem;
-  color: #e5e7eb; 
+  color: #e5e7eb;
 }
 
 .scrollbar-hide {
-  -ms-overflow-style: none; 
-  scrollbar-width: none; 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;  
+  display: none;
 }
 
 @keyframes breathe {
@@ -379,6 +377,7 @@
   margin-bottom: 0;
   font-size: 0.95rem;
 }
+
 body:has([data-lightbox-container]) .fixed.top-6.right-6.z-\[110\] {
   display: none !important;
-  }
+}

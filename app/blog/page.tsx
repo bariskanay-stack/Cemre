@@ -23,12 +23,10 @@ export default function BlogPage() {
   const filteredPosts = useMemo(() => {
     let posts = allPosts;
 
-    // Kategori filtresi
     if (selectedCategory !== 'all') {
       posts = posts.filter(post => post.category === selectedCategory);
     }
 
-    // Arama filtresi
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
       posts = posts.filter(post =>
@@ -44,7 +42,6 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-[#150b01] pt-24 pb-16">
       <div className="container mx-auto px-4 max-w-7xl">
-        {/* Header */}
         <div className="text-center mb-16">
           <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl text-white mb-4">
             <TextReveal>
@@ -56,7 +53,6 @@ export default function BlogPage() {
           </p>
         </div>
 
-        {/* Öne Çıkan Yazılar */}
         {featuredPosts.length > 0 && (
           <div className="mb-16">
             <h2 className="font-playfair text-3xl text-white mb-8">Öne Çıkan Yazılar</h2>
@@ -68,9 +64,7 @@ export default function BlogPage() {
           </div>
         )}
 
-        {/* Filtreler */}
         <div className="mb-12">
-          {/* Arama */}
           <div className="mb-6">
             <input
               type="text"
@@ -81,7 +75,6 @@ export default function BlogPage() {
             />
           </div>
 
-          {/* Kategori filtreleri */}
           <div className="flex flex-wrap gap-3">
             <button
               onClick={() => setSelectedCategory('all')}
@@ -109,7 +102,6 @@ export default function BlogPage() {
           </div>
         </div>
 
-        {/* Blog Yazıları */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPosts.length > 0 ? (
             filteredPosts.map((post, index) => (
@@ -243,4 +235,3 @@ function BlogPostCard({ post, index }: { post: BlogPost; index: number }) {
     </motion.div>
   );
 }
-

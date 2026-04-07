@@ -22,7 +22,6 @@ export default function AboutPage() {
           </div>
         </nav>
 
-        {/* Başlık */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -37,7 +36,6 @@ export default function AboutPage() {
           </p>
         </motion.div>
 
-        {/* İçerik - Görsel ve Metin */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-24">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -80,7 +78,6 @@ export default function AboutPage() {
           </motion.div>
         </div>
 
-        {/* Detaylı Metin Bölümü */}
         <div className="max-w-4xl mx-auto space-y-12 mb-24">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -182,7 +179,6 @@ export default function AboutPage() {
           </motion.div>
         </div>
 
-        {/* Değerlerimiz */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -221,7 +217,6 @@ export default function AboutPage() {
           </div>
         </motion.div>
 
-        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}

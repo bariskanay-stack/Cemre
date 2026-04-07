@@ -233,7 +233,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                     <h3 className="text-xl font-light text-[#f4c542] mb-6 uppercase tracking-[0.2em] font-cinzel border-b border-[#f4c542]/30 pb-3">
                       Teknik Özellikler
                     </h3>
-                    <div className="space-y-4">
+                    <div className="space-y-3">
                       {product.details.map((detail, index) => {
                         if (typeof detail === 'string') {
                           return (
@@ -244,7 +244,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                           );
                         } else {
                           return (
-                            <div key={index} className="grid grid-cols-[120px_1fr] gap-4 text-sm">
+                            <div key={index} className="grid grid-cols-[140px_1fr] gap-4 text-sm py-2">
                               <dt className="text-[#f4c542] font-light tracking-wide font-cinzel">
                                 {detail.label}:
                               </dt>
@@ -298,6 +298,9 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                 </Link>
                 <Link
                   href={`/collections/${category.slug}`}
+                  onClick={() => {
+                    sessionStorage.setItem(`scroll-${category.slug}`, window.scrollY.toString());
+                  }}
                   className="block text-center lg:text-left text-sm text-gray-300 hover:text-white transition-all duration-300 uppercase tracking-wider hover:-translate-x-1"
                 >
                   ← Koleksiyona Dön
@@ -319,4 +322,3 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
     </div>
   );
 }
-

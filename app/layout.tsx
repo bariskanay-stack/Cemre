@@ -49,6 +49,7 @@ export default function RootLayout({
       className={`${cormorant.variable} ${allura.variable} ${cinzel.variable}`}
     >
       <head>
+        <meta name="apple-domain-verification" content="rnD5MkNTdg4Otb9nQWXhG_EfFWkUXBnQCne1Yn8znac" />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

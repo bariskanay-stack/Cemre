@@ -50,27 +50,21 @@ export default function RootLayout({
     >
       <head>
         <meta name="apple-domain-verification" content="rnD5MkNTdg4Otb9nQWXhG_EfFWkUXBnQCne1Yn8znac" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-WE1WW7F5GS"></script>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KFMPJ6JW');`,
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-WE1WW7F5GS');
+            `,
           }}
         />
         <meta name="darkreader" content="NO-DARKREADER-PLUGIN" />
         <meta name="color-scheme" content="dark" />
       </head>
       <body className="font-cormorant antialiased">
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-KFMPJ6JW"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          />
-        </noscript>
         <div className="flex min-h-screen flex-col">
           <Navigation logoText={siteSettings.logoText} links={navigationLinks} />
           <main className="flex-1">{children}</main>

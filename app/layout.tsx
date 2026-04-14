@@ -43,8 +43,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  throw new Error("Sistem Bakımda");
-
   return (
     <html 
       lang="tr" 

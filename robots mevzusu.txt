@@ -1,0 +1,58 @@
+Sayfa kaynakları
+14/45 yüklenemedi
+
+Googlebot, robots.txt dosyası tarafından engellendi
+Komut dosyası
+https://www.cemrebridal.com/_next/static/chunks/0257pdz1-imal.js
+
+Googlebot, robots.txt dosyası tarafından engellendi
+Komut dosyası
+https://www.cemrebridal.com/_next/static/chunks/04y-1j38mnep8.js
+
+Googlebot, robots.txt dosyası tarafından engellendi
+Komut dosyası
+https://www.cemrebridal.com/_next/static/chunks/05tsy9pxtuyv0.js
+
+Googlebot, robots.txt dosyası tarafından engellendi
+Komut dosyası
+https://www.cemrebridal.com/_next/static/chunks/0d3shmwh5_nmn.js
+
+Googlebot, robots.txt dosyası tarafından engellendi
+Komut dosyası
+https://www.cemrebridal.com/_next/static/chunks/0f1iy1te0av7u.js
+
+Googlebot, robots.txt dosyası tarafından engellendi
+Komut dosyası
+https://www.cemrebridal.com/_next/static/chunks/0gexrjrv0c0vq.js
+
+Googlebot, robots.txt dosyası tarafından engellendi
+Stil Sayfası
+https://www.cemrebridal.com/_next/static/chunks/0oomau22d1rgj.css
+
+Googlebot, robots.txt dosyası tarafından engellendi
+Komut dosyası
+https://www.cemrebridal.com/_next/static/chunks/0p09kfs4gq_et.js
+
+Googlebot, robots.txt dosyası tarafından engellendi
+Komut dosyası
+https://www.cemrebridal.com/_next/static/chunks/0p0oks84_p.lq.js
+
+Googlebot, robots.txt dosyası tarafından engellendi
+Komut dosyası
+https://www.cemrebridal.com/_next/static/chunks/0pqt~8bl3ukh4.js
+
+Googlebot, robots.txt dosyası tarafından engellendi
+Komut dosyası
+https://www.cemrebridal.com/_next/static/chunks/0wfe-g_ttsqcn.js
+
+Googlebot, robots.txt dosyası tarafından engellendi
+Komut dosyası
+https://www.cemrebridal.com/_next/static/chunks/13lt9vqulysmn.js
+
+Googlebot, robots.txt dosyası tarafından engellendi
+Komut dosyası
+https://www.cemrebridal.com/_next/static/chunks/turbopack-03gxlitmnw076.js
+
+Googlebot, robots.txt dosyası tarafından engellendi
+Yazı tipi
+https://www.cemrebridal.com/_next/static/media/01e4147cff8141ee.p.10ked.7w885.g.woff2

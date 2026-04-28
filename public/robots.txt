@@ -10,6 +10,9 @@ Sitemap: https://www.cemrebridal.com/sitemap.xml
 Disallow: /api/
 Disallow: /admin/
 
+# Disallow query parameters to avoid duplicate content
+Disallow: /*?*
+
 # Allow all static assets (CSS, JS, fonts) - IMPORTANT for SEO
 Allow: /_next/static/
 Allow: /_next/image

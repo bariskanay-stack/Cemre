@@ -25,6 +25,41 @@ const nextConfig = {
   
   async redirects() {
     return [
+      // HTTP www -> HTTPS www
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.cemrebridal.com',
+          },
+          {
+            type: 'header',
+            key: 'x-forwarded-proto',
+            value: 'http',
+          },
+        ],
+        destination: 'https://www.cemrebridal.com/:path*',
+        permanent: true,
+      },
+      // HTTP non-www -> HTTPS www
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'cemrebridal.com',
+          },
+          {
+            type: 'header',
+            key: 'x-forwarded-proto',
+            value: 'http',
+          },
+        ],
+        destination: 'https://www.cemrebridal.com/:path*',
+        permanent: true,
+      },
+      // HTTPS non-www -> HTTPS www
       {
         source: '/:path*',
         has: [

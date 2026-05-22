@@ -71,7 +71,7 @@ export const butceDostuLuksRehberi: BlogPost = {
 
   publishedAt: '2025-12-14T10:00:00Z',
   readTime: 4,
-  featured: false,
+  featured: true,
 
   meta_description: 'Düşük bütçeyle lüks gelinlik görünümü nasıl elde edilir? Mat kumaş seçimi, düğme hilesi, doğru terzilik ve old money stili ipuçları.',
 

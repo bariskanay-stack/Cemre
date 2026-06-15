@@ -10,7 +10,10 @@ Sitemap: https://www.cemrebridal.com/sitemap.xml
 Disallow: /api/
 Disallow: /admin/
 
-# Disallow query parameters to avoid duplicate content
+# Allow blog tag pages for SEO
+Allow: /blog?tag=*
+
+# Disallow other query parameters to avoid duplicate content
 Disallow: /*?*
 
 # Allow all static assets (CSS, JS, fonts) - IMPORTANT for SEO

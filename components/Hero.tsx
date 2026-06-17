@@ -30,7 +30,33 @@ export default function Hero({ logoText, tagline }: HeroProps) {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-[#150b01] isolate">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'VideoObject',
+            name: 'Cemre Bridal - Hayalleriniz Zarafetle Buluşuyor',
+            description: 'İstanbul\'da en şık gelinlik ve özel gün kıyafetleri. Cemre Bridal koleksiyonlarını keşfedin.',
+            thumbnailUrl: 'https://www.cemrebridal.com/images/hero/hero-poster.png',
+            uploadDate: '2024-01-01T00:00:00Z',
+            contentUrl: 'https://www.cemrebridal.com/images/hero/hero.mp4',
+            embedUrl: 'https://www.cemrebridal.com/',
+            duration: 'PT30S',
+            publisher: {
+              '@type': 'Organization',
+              name: 'Cemre Bridal',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://www.cemrebridal.com/icon.svg',
+              },
+            },
+          }),
+        }}
+      />
+      
+      <section className="relative h-screen w-full overflow-hidden bg-[#150b01] isolate">
       <div className="absolute inset-0 w-full h-full">
         <Image
           src="/images/hero/hero-poster.png"
@@ -52,8 +78,17 @@ export default function Hero({ logoText, tagline }: HeroProps) {
             playsInline
             preload="none"
             className="absolute inset-0 w-full h-full object-cover"
+            itemProp="video"
+            itemScope
+            itemType="https://schema.org/VideoObject"
+            aria-label="Cemre Bridal tanıtım videosu"
           >
             <source src="/images/hero/hero.mp4" type="video/mp4" />
+            <meta itemProp="name" content="Cemre Bridal - Hayalleriniz Zarafetle Buluşuyor" />
+            <meta itemProp="description" content="İstanbul'da en şık gelinlik ve özel gün kıyafetleri" />
+            <meta itemProp="thumbnailUrl" content="https://www.cemrebridal.com/images/hero/hero-poster.png" />
+            <meta itemProp="uploadDate" content="2024-01-01T00:00:00Z" />
+            <meta itemProp="contentUrl" content="https://www.cemrebridal.com/images/hero/hero.mp4" />
           </video>
         )}
         
@@ -96,5 +131,6 @@ export default function Hero({ logoText, tagline }: HeroProps) {
         </motion.button>
       </div>
     </section>
+    </>
   );
 }

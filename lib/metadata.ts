@@ -34,6 +34,14 @@ export const homeMetadata: Metadata = {
         alt: 'Cemre Bridal İstanbul',
       },
     ],
+    videos: [
+      {
+        url: '/images/hero/hero.mp4',
+        width: 1920,
+        height: 1080,
+        type: 'video/mp4',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',

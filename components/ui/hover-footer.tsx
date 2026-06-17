@@ -293,12 +293,19 @@ export function HoverFooter() {
               <SocialIcon key={label} icon={icon} href={href} label={label} mouseX={mouseX} />
             ))}
           </motion.div>
-          <div className="text-center md:text-right">
-            <p className="text-neutral-200/80 mb-1">
+          <div className="text-center md:text-right space-y-1">
+            <p className="text-neutral-200/80">
               © {new Date().getFullYear()} Cemre Bridal. Tüm hakları saklıdır.
             </p>
             <p className="font-allura text-sm text-[#c9a869]/80">
               B.K.
+            </p>
+            <p className="font-allura text-[10px] text-neutral-400/50 tracking-wide">
+              {new Date().toLocaleDateString('tr-TR', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric'
+              })}
             </p>
           </div>
         </div>

@@ -25,7 +25,6 @@ const nextConfig = {
   
   async redirects() {
     return [
-      // HTTP www -> HTTPS www
       {
         source: '/:path*',
         has: [
@@ -42,7 +41,6 @@ const nextConfig = {
         destination: 'https://www.cemrebridal.com/:path*',
         permanent: true,
       },
-      // HTTP non-www -> HTTPS www
       {
         source: '/:path*',
         has: [
@@ -59,7 +57,6 @@ const nextConfig = {
         destination: 'https://www.cemrebridal.com/:path*',
         permanent: true,
       },
-      // HTTPS non-www -> HTTPS www
       {
         source: '/:path*',
         has: [

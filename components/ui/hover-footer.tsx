@@ -301,7 +301,7 @@ export function HoverFooter() {
               B.K.
             </p>
             <p className="font-allura text-[10px] text-neutral-400/50 tracking-wide">
-              {new Date().toLocaleDateString('tr-TR', { 
+              Son Güncelleme: {new Date().toLocaleDateString('tr-TR', { 
                 year: 'numeric', 
                 month: 'long', 
                 day: 'numeric'

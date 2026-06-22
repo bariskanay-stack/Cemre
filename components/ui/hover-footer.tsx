@@ -13,6 +13,7 @@ import {
   Heart,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { BUILD_DATE } from '@/lib/buildInfo';
 
 type TextHoverEffectProps = {
   text: string;
@@ -301,11 +302,7 @@ export function HoverFooter() {
               B.K.
             </p>
             <p className="font-allura text-[10px] text-neutral-400/50 tracking-wide">
-              Son Güncelleme: {new Date().toLocaleDateString('tr-TR', { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric'
-              })}
+              Son Güncelleme: {BUILD_DATE}
             </p>
           </div>
         </div>

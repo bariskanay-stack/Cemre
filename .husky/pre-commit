@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+CURRENT_DATE=$(node -e "console.log(new Date().toLocaleDateString('tr-TR', {year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Europe/Istanbul'}))")
+echo "export const BUILD_DATE = '$CURRENT_DATE';" > lib/buildInfo.ts
+git add lib/buildInfo.ts

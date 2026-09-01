@@ -1,1 +1,1 @@
-export const BUILD_DATE = '6 Ağustos 2026';
+export const BUILD_DATE = '2 Eylül 2026';

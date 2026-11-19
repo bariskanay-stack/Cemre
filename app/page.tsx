@@ -7,6 +7,7 @@ import { useEffect, useState, useRef } from 'react';
 import Hero from '@/components/Hero';
 import ProductCard from '@/components/ProductCard';
 import TextReveal from '@/components/TextReveal';
+import FarewellSection from '@/components/FarewellSection';
 import {
   heroContent,
   categories,
@@ -127,6 +128,9 @@ export default function Home() {
         logoText={heroContent.logoText}
         tagline={heroContent.tagline}
       />
+
+      {/* Veda Mesajı Bölümü */}
+      <FarewellSection />
 
       <section className="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32">
         <motion.div

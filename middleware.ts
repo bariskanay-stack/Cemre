@@ -13,7 +13,7 @@ export function middleware(request: NextRequest) {
   const host = request.headers.get('host') || '';
   const protocol = request.headers.get('x-forwarded-proto') || 'https';
   
-  if (host === 'cemrebridal.com' || protocol === 'http') {
+  if (host === 'cemrebridal.com' || (host === 'www.cemrebridal.com' && protocol === 'http')) {
     const url = request.nextUrl.clone();
     url.protocol = 'https:';
     url.host = 'www.cemrebridal.com';

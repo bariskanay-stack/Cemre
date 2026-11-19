@@ -1,17 +1,12 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, Allura, Cinzel } from 'next/font/google';
-import Navigation from '@/components/Navigation';
-import HoverFooter from '@/components/ui/hover-footer';
-import ScrollToTop from '@/components/ScrollToTop';
-import MobileScrollIndicator from '@/components/MobileScrollIndicator';
-import WhatsAppButton from '@/components/WhatsAppButton';
-import { siteSettings, navigationLinks } from '@/lib/mockData';
+import SiteFrame from '@/components/SiteFrame';
 import { homeMetadata } from '@/lib/metadata';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+  weight: ['300', '400', '500', '600', '700'],
   variable: '--font-cormorant',
   display: 'swap',
   preload: true,
@@ -65,14 +60,7 @@ export default function RootLayout({
         <meta name="color-scheme" content="dark" />
       </head>
       <body className="font-cormorant antialiased">
-        <div className="flex min-h-screen flex-col">
-          <Navigation logoText={siteSettings.logoText} links={navigationLinks} />
-          <main className="flex-1">{children}</main>
-          <HoverFooter />
-          <ScrollToTop />
-          <MobileScrollIndicator />
-          <WhatsAppButton />
-        </div>
+        <SiteFrame>{children}</SiteFrame>
       </body>
     </html>
   );

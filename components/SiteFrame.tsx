@@ -12,7 +12,6 @@ import { siteSettings, navigationLinks } from '@/lib/mockData';
 export default function SiteFrame({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
-  // Anasayfada da Navigation ve Footer göster
   return (
     <div className="flex min-h-screen flex-col">
       <Navigation logoText={siteSettings.logoText} links={navigationLinks} />
